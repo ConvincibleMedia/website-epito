@@ -1,0 +1,124 @@
+{% assign cols = site.data.cards %}
+{% assign max = cols['max'] %}
+
+{% assign row_sm = 0 %}
+{% assign row_md = 0 %}
+{% assign row_lg = 0 %}
+
+{% for block in include.blocks %}
+	{% if include['size'] %}
+		{% assign size_to_use = include['size'] %}
+	{% else %}
+		{% assign size_to_use = block.size %}
+	{% endif %}
+
+	{% case size_to_use %}
+		{% when "Solo" %}
+			{% assign card_size = "solo" %}
+		{% when "Large" %}
+			{% assign card_size = "large" %}
+		{% when "Medium" %}
+			{% assign card_size = "medium" %}
+		{% when "Small" %}
+			{% assign card_size = "small" %}
+		{% else %}
+			{% assign card_size = "small" %}
+	{% endcase %}
+
+	{% if card_size == "small" %}
+		{% assign image_format = site.data.images.thumb %}
+	{% else %}
+		{% assign image_format = site.data.images.thumb-medium %}
+	{% endif %}
+	
+	{% assign card_xs = 12 %}
+	{% if cols[card_size].sm %}{% assign card_sm = cols[card_size].sm %}{% else %}{% assign card_sm = card_xs %}{% endif %}
+	{% if cols[card_size].md %}{% assign card_md = cols[card_size].md %}{% else %}{% assign card_md = card_sm %}{% endif %}
+	{% if cols[card_size].lg %}{% assign card_lg = cols[card_size].lg %}{% else %}{% assign card_lg = card_md %}{% endif %}
+
+	{% if card_size == "solo" %}
+		{% assign solo_offset = ' col-md-offset-2' %}
+
+		{% if row_sm > 0 or row_sm > 0 or row_sm > 0 %}
+			</div>
+		{% endif %}
+
+		{% assign row_sm = 0 %}
+		{% assign row_md = 0 %}
+		{% assign row_lg = 0 %}
+	{% else %}
+		{% assign solo_offset = '' %}
+	{% endif %}
+
+	{% if row_sm == 0 and row_md == 0 and row_lg == 0 %}
+		<div class="row">
+	{% endif %}
+
+	{% assign row_sm = row_sm | plus: card_sm %}
+	{% assign row_md = row_md | plus: card_md %}
+	{% assign row_lg = row_lg | plus: card_lg %}
+
+	{% capture clearfix -%}
+		{%- if row_sm > max %} visible-sm-block{%- endif -%}
+		{%- if row_md > max %} visible-md-block{%- endif -%}
+		{%- if row_lg > max %} visible-lg-block{%- endif -%}
+	{%- endcapture %}
+
+	{% if clearfix.size > 0 %}
+		<div class="clearfix{{ clearfix }}"></div>
+	{% endif %}
+
+	{% if site.data.sitemap.pages[block.link].live != false and include.links != false and block.link %}
+		{% assign live = true %}
+	{% else %}
+		{% assign live = false %}
+	{% endif %}
+
+	<div class="col-sm-{{card_sm}} col-md-{{card_md}} col-lg-{{card_lg}}{{ solo_offset }}">
+		<div class="card{% if live %} link{% endif %}">
+
+			{% if block.image.url %}
+				<div class="card-image">
+					{% include helpers/img.html src=block.image.url alt=block.image.alt format=image_format %}
+				</div>
+			{% elsif block.video.url %}
+				<div class="card-image">
+					{% include helpers/video.html id=block.video.url on=block.video.provider title=block.video.title format='plain' %}
+				</div>
+			{% endif %}
+
+			{% if block.title or block.subtitle %}
+				<h3 class="hgroup">
+					{% if block.subtitle %}<span class="h4 subtitle">{{ block.subtitle }}<span class="hide">: </span></span>{% endif %}
+					{% if block.title %}
+						<span class="h3">
+							{% if live %}
+								{% include helpers/link.html href=block.link text=block.title %}
+							{% else %}
+								{{ block.title }}
+							{% endif %}
+						</span>
+					{% endif %}
+				</h3>
+			{% endif %}
+			{% if block.description or true %}
+				{{ block.description | markdownify }}
+			{% endif %}
+		</div>
+	</div>
+
+	{% if row_sm > max %}{% assign row_sm = card_sm %}{% endif %}
+	{% if row_md > max %}{% assign row_md = card_md %}{% endif %}
+	{% if row_lg > max %}{% assign row_lg = card_lg %}{% endif %}
+
+	{% if forloop.last or card_size == "solo" %}
+		{% assign row_sm = 0 %}
+		{% assign row_md = 0 %}
+		{% assign row_lg = 0 %}
+	{% endif %}
+
+	{% if row_sm == 0 and row_md == 0 and row_lg == 0 %}
+		</div>
+	{% endif %}
+
+{% endfor %}

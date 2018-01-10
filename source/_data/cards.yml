@@ -1,0 +1,16 @@
+breaks:
+  - xs
+  - sm
+  - md
+  - lg
+small:
+    md: 4
+    sm: 6
+medium:
+    md: 6
+    sm: 6
+large:
+    md: 8
+solo:
+    md: 8
+max: 12

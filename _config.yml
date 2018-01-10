@@ -1,0 +1,33 @@
+# Basic settings
+title: "Website by Convincible"
+
+# Build settings
+source: "source"
+destination: "public"
+
+markdown: "kramdown"
+# show_drafts: null
+# future: false
+# unpublished: false
+excerpt_separator: "\n\n"
+strict_front_matter: true
+
+include: _redirects
+# exclude:
+
+# Defaults
+defaults:
+  -
+    scope:
+      path: "" # an empty string here means all files in the project
+    values:
+      layout: "base"
+
+permalink: ":year/:month/:slug.html"
+
+# Collections
+collections:
+  pages:
+    title: "Pages"
+    output: true
+    permalink: ":category/:slug.html"

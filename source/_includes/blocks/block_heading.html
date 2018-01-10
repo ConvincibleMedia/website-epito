@@ -1,0 +1,16 @@
+{% if include.blocks.first %}
+	<span class="heading-blocks">
+		{% for block in include.blocks %}
+			{% case block.item_type %}
+				{% when "block_heading_small" %}
+					<span class="heading-small">{{ block.text }}</span>
+				{% when "block_heading_medium" %}
+					<span class="heading-medium">{{ block.text }}</span>
+				{% when "block_heading_large" %}
+					<span class="heading-large">{{ block.text }}</span>
+			{% endcase %}
+		{% endfor %}
+	</span>
+{% else %}
+	{{ include.blocks }}
+{% endif %}

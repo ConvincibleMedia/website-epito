@@ -1,0 +1,43 @@
+thumb:
+    w: 320
+    h: 180
+    fit: "crop"
+    crop: "edges"
+    auto: "compress"
+    fm: "pjpg"
+    q: 50
+thumb-medium:
+    w: 640
+    h: 360
+    fit: "crop"
+    crop: "edges"
+    auto: "compress"
+    fm: "pjpg"
+    q: 50
+hero:
+    w: 1280
+    h: 720
+    fit: "max"
+    auto: "compress"
+    fm: "pjpg"
+    q: 60
+small:
+    w: 320
+    h: 180
+    fit: "clip"
+    auto: "compress"
+    fm: "pjpg"
+    q: 50
+medium:
+    w: 640
+    h: 360
+    fit: "clip"
+    auto: "compress"
+    fm: "pjpg"
+    q: 50
+logo:
+   w: 320
+   h: 180
+   fit: "clip"
+   auto: "compress"
+   fm: "png"

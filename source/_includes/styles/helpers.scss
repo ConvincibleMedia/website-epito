@@ -1,0 +1,7 @@
+@function enumerate($pre:'', $from:1, $to:1, $post:'') {
+	@if $from == $to {
+		@return $pre + $from + $post;
+	} @else {
+		@return $pre + $from + $post + ', ' + enumerate($pre, $from + 1, $to, $post);
+	}
+}

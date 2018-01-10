@@ -1,0 +1,16 @@
+/* Small SM */
+/* Medium MD */
+/* Large LG */
+/* X-Small XS */
+/* Small SM */
+/* Medium MD */
+/* Large LG */
+/* DEBUG */
+.container, .container-fluid {
+  outline: 1px solid red; }
+
+.row {
+  outline: 1px solid blue; }
+
+.card {
+  outline: 1px solid black; }

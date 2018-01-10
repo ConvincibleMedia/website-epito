@@ -1,0 +1,8 @@
+---
+---
+{% include styles/breakpoints.scss %}
+
+/* DEBUG */
+.container, .container-fluid { outline: 1px solid red }
+.row { outline: 1px solid blue }
+.card { outline: 1px solid black }

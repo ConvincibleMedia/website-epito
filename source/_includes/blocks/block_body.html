@@ -1,0 +1,10 @@
+{% for block in include.blocks %}
+	{% case block.item_type %}
+		{% when "block_body_lead" %}
+			{% include blocks/body/block_body_lead.html paragraphs=block.paragraphs %}
+		{% when "block_body_text" %}
+			{% include blocks/body/block_body_text.html text=block.text %}
+		{% when "block_body_pullquote" %}
+			{% include blocks/body/block_body_pullquote.html paragraphs=block.paragraphs cite=block.cite %}
+	{% endcase %}
+{% endfor %}

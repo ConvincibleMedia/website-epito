@@ -1,0 +1,14 @@
+{% capture class -%}
+   {%- if include.cite -%}quote {% endif -%}
+   {%- if include.class -%}{{ include.class }} {% endif -%}
+{%- endcapture %}
+<div class="block_body_pullquote">
+   <blockquote{% if class.size > 0 %} class="{{ class }}"{% endif %}>
+      <div class="row">
+         <div class="col-md-8 col-md-offset-2">
+            {{ include.paragraphs | markdownify }}
+         </div>
+      </div>
+      {% if include.cite %}<cite>{{ include.cite }}</cite>{% endif %}
+   </blockquote>
+</div>
