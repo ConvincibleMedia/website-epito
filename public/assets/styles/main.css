@@ -166,10 +166,11 @@ nav a {
 #footer {
   padding: 1em 0; }
 
-#footer .logo {
-  float: right; }
-
+@media (min-width: 50em) {
+  #footer .logo {
+    float: right; } }
 .legal {
+  clear: both;
   margin: 1em 0;
   font-size: 90%; }
 

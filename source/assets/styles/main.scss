@@ -107,8 +107,8 @@ nav a {
 
 /* FOOTER */
 #footer { padding: 1em 0 }
-#footer .logo { float: right; }
-.legal { margin: 1em 0; font-size: 90% }
+@include md() { #footer .logo { float: right; } }
+.legal { clear: both; margin: 1em 0; font-size: 90% }
 
 
 /* CARDS */
