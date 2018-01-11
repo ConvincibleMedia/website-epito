@@ -32,14 +32,7 @@
 #header .logo { float: left }
 
 #nav {
-   clear: both;
-   padding-top: 1em;
-
-   @include sm() {
-      float: right;
-      clear: none;
-      padding-top: 0;
-   }
+   float: right;
 }
 
 nav ul {

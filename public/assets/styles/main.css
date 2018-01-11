@@ -42,17 +42,11 @@ body {
 /* TYPOGRAPHY */
 body {
   font-family: "Arial", Sans-Serif;
-  font-size: 0.7em;
-  line-height: 3ex; }
-  @media (min-width: 30em) {
-    body {
-      font-size: 0.75em; } }
-  @media (min-width: 50em) {
-    body {
-      font-size: 0.8em; } }
-  @media (min-width: 80em) {
-    body {
-      font-size: 0.85em; } }
+  font-size: 0.8em;
+  line-height: 3ex;
+  /*   @include sm() { font-size: 0.85em; }
+  	@include md() { font-size: 0.8em; }
+  	@include lg() { font-size: 0.85em; }*/ }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, nav {
   font-family: "Century Gothic", "Apple Gothic", AppleGothic, "URW Gothic L", "Avant Garde", Futura, Questrial, Sans-Serif;
@@ -109,13 +103,7 @@ h1:not(:first-child), h2:not(:first-child), h3:not(:first-child), h4:not(:first-
   float: left; }
 
 #nav {
-  clear: both;
-  padding-top: 1em; }
-  @media (min-width: 30em) {
-    #nav {
-      float: right;
-      clear: none;
-      padding-top: 0; } }
+  float: right; }
 
 nav ul {
   display: table;

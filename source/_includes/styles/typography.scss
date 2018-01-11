@@ -4,12 +4,12 @@ $text-pad: 1em;
 
 body {
    font-family: $font-body;
-   font-size: 0.7em;
+   font-size: 0.8em;
    line-height: 3ex;
 
-   @include sm() { font-size: 0.75em; }
+/*   @include sm() { font-size: 0.85em; }
 	@include md() { font-size: 0.8em; }
-	@include lg() { font-size: 0.85em; }
+	@include lg() { font-size: 0.85em; }*/
 }
 
 #{h()}, nav {
