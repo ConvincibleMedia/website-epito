@@ -1,0 +1,15 @@
+$color-1: #3eb0db;
+$color-1-lt: lighten($color-1, 25%);
+$color-1-dk: darken($color-1, 25%);
+$color-2: #335878;
+$color-2-lt: lighten($color-2, 25%);
+$color-2-dk: darken($color-2, 25%);
+$color-3: #f7ca3e;
+$color-3-lt: lighten($color-3, 25%);
+$color-3-dk: darken($color-3, 25%);
+
+$color-canvas: $color-2;
+$color-bg: #fff;
+
+$font-head: 'Century Gothic', 'Apple Gothic', AppleGothic, 'URW Gothic L', 'Avant Garde', Futura, Questrial, Sans-Serif;
+$font-body: 'Arial', Sans-Serif;

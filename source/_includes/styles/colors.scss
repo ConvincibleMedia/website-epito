@@ -1,0 +1,50 @@
+/* COLORS */
+
+html, footer {
+   background: $color-canvas;
+   color: #fff;
+}
+
+body {
+   background: $color-bg;
+   color: #000;
+}
+
+.positive {
+
+   #{h()} {
+      color: $color-2;
+   }
+
+   #{a('base')} {
+      color: $color-2;
+   }
+   #{a('hover')} {
+      color: $color-2-lt;
+   }
+}
+
+.negative {
+   background: $color-2;
+   color: #fff;
+
+   #{h()} {
+      color: #fff;
+   }
+
+   #{a('base')} {
+      color: #fff;
+   }
+   #{a('hover')} {
+      color: $color-1-lt;
+   }
+}
+
+
+
+
+
+
+#body {
+   background: lighten($color-1, 40%);
+}

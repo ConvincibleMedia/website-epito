@@ -36,7 +36,7 @@
 
 		<!-- STYLES -->
 		<link rel="stylesheet" href="/assets/styles/libraries/normalize/normalize.css" />
-		<link rel="stylesheet" href="/assets/styles/libraries/boilerplate/main.css" />
+		<link rel="stylesheet" href="/assets/styles/libraries/boilerplate/boilerplate.css" />
 		<link rel="stylesheet" href="/assets/styles/libraries/bootstrap/bootstrap-grid.css" />
 		<link rel="stylesheet" href="/assets/styles/main.css" />
 
@@ -70,42 +70,134 @@
 		<!-- OTHER -->
 		{% include snippets/compatibility.html %}
 		{% include snippets/verify.html %}
+		{% include snippets/favicon.html %}
 	</head>
-	<body>
+	<body id="top">
 		{% include snippets/gtm.html pos="body" uid="" %}<!-- must be immediately after <body> -->
 		{% include snippets/browser.html %}
 
-		<header id="top">
+		<!-- SITE WIDE -->
+		<header id="header" role="banner" class="positive">
+
 			<div class="container">
-				<div class="row">
-					<div class="col-xs-12">
-						<div class="card grid">
-							Heading
-						</div>
-					</div>
-				</div>
+				<p class="logo">{% include helpers/img.html src="/assets/images/epito.png" %}</p>
+				<!-- SITE NAV -->
+				<nav id="nav" role="navigation">
+					<ul>
+						<li class="visuallyhidden focusable"><a href="#main">Skip to Content</a></li>
+						<li><a href="">About</a></li>
+						<li><a href="">Jobs</a></li>
+						<li><a id="contact" href="">Contact</a></li>
+					</ul>
+				</nav>
 			</div>
+
 		</header>
+		<!-- PRIMARY CONTENT -->
 		<main id="main">
-			<div class="container">
-				<div class="row">
-					<div class="col-xs-12">
-						<div class="card grid">
-							{{ content }}
+			<section role="main">
+				<article role="article">
+					<header class="positive" id="hero" style="background-image: url('/assets/images/desk.jpg')">
+						<div id="hero-box">
+							<div class="container">
+								<h1 role="heading"><span class="chunk">We help you</span> organise and plan <span class="chunk">your financial life</span></h1>
+								<div class="intro">
+									<p><span class="chunk">Epito is a team of finance experts</span> who are here to <span class="chunk">look after your best interests.</span></p>
+								</div>
+							</div>
 						</div>
-					</div>
-				</div>
-			</div>
+					</header>
+					<aside id="options">
+						<div class="container">
+							<h2 id="options-header">How can we help?</h2>
+							<div class="clearfix"></div>
+							<div class="row">
+								<div class="col-sm-6 col-md-4">
+									<div class="card grid link negative">
+										<section>
+											<h3>Buying a House</h3>
+											<p>Lorem ipsum dolor sit amet. Consectetur adipiscing elit. Dolor alet sit lorem.</p>
+											<p class="more"><a href="">Learn more</a></p>
+										</section>
+									</div>
+								</div>
+								<div class="col-sm-6 col-md-4">
+									<div class="card grid link negative">
+										<section>
+											<h3>Your Pension</h3>
+											<p>Lorem ipsum dolor sit amet. Consectetur adipiscing elit. Dolor alet sit lorem.</p>
+											<p class="more"><a href="">Learn more</a></p>
+										</section>
+									</div>
+								</div>
+								<div class="col-sm-6 col-md-4">
+									<div class="card grid link negative">
+										<section>
+											<h3>Getting a Loan</h3>
+											<p>Lorem ipsum dolor sit amet. Consectetur adipiscing elit. Dolor alet sit lorem.</p>
+											<p class="more"><a href="">Learn more</a></p>
+										</section>
+									</div>
+								</div>
+								<div class="col-sm-6 col-md-4">
+									<div class="card grid link negative">
+										<section>
+											<h3>Buying a House</h3>
+											<p>Lorem ipsum dolor sit amet. Consectetur adipiscing elit. Dolor alet sit lorem.</p>
+											<p class="more"><a href="">Learn more</a></p>
+										</section>
+									</div>
+								</div>
+								<div class="col-sm-6 col-md-4">
+									<div class="card grid link negative">
+										<section>
+											<h3>Your Pension</h3>
+											<p>Lorem ipsum dolor sit amet. Consectetur adipiscing elit. Dolor alet sit lorem.</p>
+											<p class="more"><a href="">Learn more</a></p>
+										</section>
+									</div>
+								</div>
+								<div class="col-sm-6 col-md-4">
+									<div class="card grid link negative">
+										<section>
+											<h3>Getting a Loan</h3>
+											<p>Lorem ipsum dolor sit amet. Consectetur adipiscing elit. Dolor alet sit lorem.</p>
+											<p class="more"><a href="">Learn more</a></p>
+										</section>
+									</div>
+								</div>
+							</div>
+						</div>
+					</aside>
+					<section id="body" class="positive">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-8 col-md-offset-2">
+									<div class="card grid">
+										{{ content }}
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+				</article>
+			</section>
+			<!-- <section role="complementary"> -->
 		</main>
-		<footer id="footer">
+		<!-- /PRIMARY CONTENT -->
+		<footer id="footer" class="negative">
 			<div class="container">
-				<div class="row">
-					<div class="col-xs-12">
-						<div class="card grid">
-							Footer
-						</div>
-					</div>
-				</div>
+				<p class="logo">{% include helpers/img.html src="/assets/images/epito-white.png" %}</p>
+				<nav>
+					<ul>
+						<li><a href="#top">Back to Top</a></li>
+						<li><a href="">Legal</a></li>
+						<li><a href="">Privacy</a></li>
+						<li><a href="">Data Protection</a></li>
+					</ul>
+				</nav>
+				<p class="legal">Nos sitiam earist vento voluptae is rem eossi tem audi utem et, odit inci sitatiume eum ium qui quibus mos escipis cient.</p>
+
 			</div>
 		</footer>
 		<!--

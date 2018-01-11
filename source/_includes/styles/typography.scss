@@ -1,0 +1,48 @@
+/* TYPOGRAPHY */
+
+$text-pad: 1em;
+
+body {
+   font-family: $font-body;
+   font-size: 0.7em;
+   line-height: 3ex;
+
+   @include sm() { font-size: 0.75em; }
+	@include md() { font-size: 0.8em; }
+	@include lg() { font-size: 0.85em; }
+}
+
+#{h()}, nav {
+   font-family: $font-head;
+   line-height: 120%;
+   font-weight: bold;
+}
+
+nav ul { list-style: none }
+nav a { font-size: 120%; }
+
+#{a()} {
+   text-decoration: none;
+}
+
+h1, .h1 { font-size: 2.5em }
+h2, .h2 { font-size: 1.6em }
+h3, .h3 { font-size: 1.3em }
+
+
+
+/* Normalize margins */
+p, #{h()}, blockquote, ul, ol, table {
+   margin: 0 0 $text-pad 0;
+   padding: 0;
+}
+p, #{h()}, blockquote, ul, ol, table {
+   &:last-child {
+      margin-bottom: 0;
+   }
+}
+#{h()} {
+   &:not(:first-child) {
+      margin-top: $text-pad * 1.5;
+   }
+}

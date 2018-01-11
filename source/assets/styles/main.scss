@@ -1,8 +1,132 @@
 ---
 ---
 {% include styles/breakpoints.scss %}
+{% include styles/helpers.scss %}
+{% include styles/brand.scss %}
 
-/* DEBUG */
+/* DEBUG *//*
 .container, .container-fluid { outline: 1px solid red }
 .row { outline: 1px solid blue }
-.card { outline: 1px solid black }
+.card { outline: 1px solid black }*/
+
+{% include styles/colors.scss %}
+{% include styles/typography.scss %}
+
+/* Masthead */
+#header {
+   padding: 1em 0;
+   position: fixed;
+   z-index: 999999;
+   top: 0; left: 0; right: 0;
+   background: #fff;
+   background: rgba(255, 255, 255, 0.9);
+}
+.logo {
+   margin: 0;
+
+   img {
+      display: block;
+      height: 3em
+   }
+}
+#header .logo { float: left }
+
+#nav {
+   clear: both;
+   padding-top: 1em;
+
+   @include sm() {
+      float: right;
+      clear: none;
+      padding-top: 0;
+   }
+}
+
+nav ul {
+   display: table;
+   margin: 0 -0.5em;
+   padding: 0;
+}
+nav li {
+   display: table-cell;
+   vertical-align: middle;
+   height: 3em;
+}
+nav a {
+   display: block;
+   padding: 0.5em;
+   text-align: center
+}
+#contact {
+   background: #fff;
+   border-radius: 0.9em
+}
+
+/* MAIN */
+
+#body, #options { padding: 2em 0; }
+
+/* Heading */
+#hero {
+   background-repeat: no-repeat;
+   background-position: center center;
+   background-attachment: scroll;
+   background-size: cover;
+}
+#hero-box {
+   text-align: center;
+   padding: 12em 0 7em 0;
+   background: rgba(255, 255, 255, 0.25);
+   background: -webkit-radial-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+   background: radial-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+}
+
+#body {
+   background: lighten($color-1, 40%);
+}
+
+/* Options */
+
+#options {
+   position: relative;
+}
+
+#options-header {
+   background: $color-1;
+   padding: 0.8em;
+   color: #fff;
+   position: absolute;
+   top: -1.8em
+}
+
+
+.more {
+   font-size: 80%;
+   font-weight: bold;
+   text-align: right;
+   margin: -1em 0;
+}
+
+
+
+
+
+
+/* FOOTER */
+#footer { padding: 1em 0 }
+#footer .logo { float: right; }
+.legal { margin: 1em 0; font-size: 90% }
+
+
+/* CARDS */
+
+.card {
+   padding: 1em;
+   margin: 1em 0;
+}
+
+
+/* SPECIAL */
+
+.link { cursor: pointer }
+.chunk { white-space: nowrap }

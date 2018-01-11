@@ -6,11 +6,193 @@
 /* Medium MD */
 /* Large LG */
 /* DEBUG */
-.container, .container-fluid {
-  outline: 1px solid red; }
+           /*
+.container, .container-fluid { outline: 1px solid red }
+.row { outline: 1px solid blue }
+.card { outline: 1px solid black }*/
+/* COLORS */
+html, footer {
+  background: #335878;
+  color: #fff; }
 
-.row {
-  outline: 1px solid blue; }
+body {
+  background: #fff;
+  color: #000; }
 
+.positive h1, .positive h2, .positive h3, .positive h4, .positive h5, .positive h6, .positive .h1, .positive .h2, .positive .h3, .positive .h4, .positive .h5, .positive .h6 {
+  color: #335878; }
+.positive a, .positive a:link, .positive a:visited {
+  color: #335878; }
+.positive a:hover, .positive a:active, .positive a:focus, .positive a.hover {
+  color: #6b98c0; }
+
+.negative {
+  background: #335878;
+  color: #fff; }
+  .negative h1, .negative h2, .negative h3, .negative h4, .negative h5, .negative h6, .negative .h1, .negative .h2, .negative .h3, .negative .h4, .negative .h5, .negative .h6 {
+    color: #fff; }
+  .negative a, .negative a:link, .negative a:visited {
+    color: #fff; }
+  .negative a:hover, .negative a:active, .negative a:focus, .negative a.hover {
+    color: #a9dcef; }
+
+#body {
+  background: #eaf6fb; }
+
+/* TYPOGRAPHY */
+body {
+  font-family: "Arial", Sans-Serif;
+  font-size: 0.7em;
+  line-height: 3ex; }
+  @media (min-width: 30em) {
+    body {
+      font-size: 0.75em; } }
+  @media (min-width: 50em) {
+    body {
+      font-size: 0.8em; } }
+  @media (min-width: 80em) {
+    body {
+      font-size: 0.85em; } }
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, nav {
+  font-family: "Century Gothic", "Apple Gothic", AppleGothic, "URW Gothic L", "Avant Garde", Futura, Questrial, Sans-Serif;
+  line-height: 120%;
+  font-weight: bold; }
+
+nav ul {
+  list-style: none; }
+
+nav a {
+  font-size: 120%; }
+
+a, a:link, a:visited, a:hover, a:active, a:focus, a.hover {
+  text-decoration: none; }
+
+h1, .h1 {
+  font-size: 2.5em; }
+
+h2, .h2 {
+  font-size: 1.6em; }
+
+h3, .h3 {
+  font-size: 1.3em; }
+
+/* Normalize margins */
+p, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, blockquote, ul, ol, table {
+  margin: 0 0 1em 0;
+  padding: 0; }
+
+p:last-child, h1:last-child, h2:last-child, h3:last-child, h4:last-child, h5:last-child, h6:last-child, .h1:last-child, .h2:last-child, .h3:last-child, .h4:last-child, .h5:last-child, .h6:last-child, blockquote:last-child, ul:last-child, ol:last-child, table:last-child {
+  margin-bottom: 0; }
+
+h1:not(:first-child), h2:not(:first-child), h3:not(:first-child), h4:not(:first-child), h5:not(:first-child), h6:not(:first-child), .h1:not(:first-child), .h2:not(:first-child), .h3:not(:first-child), .h4:not(:first-child), .h5:not(:first-child), .h6:not(:first-child) {
+  margin-top: 1.5em; }
+
+/* Masthead */
+#header {
+  padding: 1em 0;
+  position: fixed;
+  z-index: 999999;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  background: rgba(255, 255, 255, 0.9); }
+
+.logo {
+  margin: 0; }
+  .logo img {
+    display: block;
+    height: 3em; }
+
+#header .logo {
+  float: left; }
+
+#nav {
+  clear: both;
+  padding-top: 1em; }
+  @media (min-width: 30em) {
+    #nav {
+      float: right;
+      clear: none;
+      padding-top: 0; } }
+
+nav ul {
+  display: table;
+  margin: 0 -0.5em;
+  padding: 0; }
+
+nav li {
+  display: table-cell;
+  vertical-align: middle;
+  height: 3em; }
+
+nav a {
+  display: block;
+  padding: 0.5em;
+  text-align: center; }
+
+#contact {
+  background: #fff;
+  border-radius: 0.9em; }
+
+/* MAIN */
+#body, #options {
+  padding: 2em 0; }
+
+/* Heading */
+#hero {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: scroll;
+  background-size: cover; }
+
+#hero-box {
+  text-align: center;
+  padding: 12em 0 7em 0;
+  background: rgba(255, 255, 255, 0.25);
+  background: -webkit-radial-gradient(white, rgba(255, 255, 255, 0));
+  background: radial-gradient(white, rgba(255, 255, 255, 0)); }
+
+#body {
+  background: #eaf6fb; }
+
+/* Options */
+#options {
+  position: relative; }
+
+#options-header {
+  background: #3eb0db;
+  padding: 0.8em;
+  color: #fff;
+  position: absolute;
+  top: -1.8em; }
+
+.more {
+  font-size: 80%;
+  font-weight: bold;
+  text-align: right;
+  margin: -1em 0; }
+
+/* FOOTER */
+#footer {
+  padding: 1em 0; }
+
+#footer .logo {
+  float: right; }
+
+.legal {
+  margin: 1em 0;
+  font-size: 90%; }
+
+/* CARDS */
 .card {
-  outline: 1px solid black; }
+  padding: 1em;
+  margin: 1em 0; }
+
+/* SPECIAL */
+.link {
+  cursor: pointer; }
+
+.chunk {
+  white-space: nowrap; }
