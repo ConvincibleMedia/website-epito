@@ -62,9 +62,13 @@ nav a {
 /* Heading */
 #hero {
    background-repeat: no-repeat;
-   background-position: center center;
+   background-position: center bottom;
    background-attachment: scroll;
    background-size: cover;
+
+   @include lg() {
+      background-size: $lg-break * 1.1;
+   }
 }
 #hero-box {
    text-align: center;
@@ -72,6 +76,10 @@ nav a {
    background: rgba(255, 255, 255, 0.25);
    background: -webkit-radial-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
    background: radial-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+
+   @include lg() {
+      padding: 15em 0 10em 0;
+   }
 }
 
 #body {
@@ -100,9 +108,20 @@ nav a {
    margin: -1em 0;
 }
 
+.more {
+   a {
+      padding-right: 1em;
+      background: transparent url('/assets/images/tri.svg') right/0.6em no-repeat scroll;
+   }
 
+   #{a('base')} {
+      color: $color-1;
+   }
 
-
+   #{a('hover')} {
+      color: $color-1-lt;
+   }
+}
 
 
 /* FOOTER */
@@ -115,7 +134,7 @@ nav a {
 
 .card {
    padding: 1em;
-   margin: 1em 0;
+   margin: 1.5em 0;
 }
 
 

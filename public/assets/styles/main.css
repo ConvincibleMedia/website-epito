@@ -49,7 +49,7 @@ body {
   	@include lg() { font-size: 0.85em; }*/ }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, nav {
-  font-family: "Century Gothic", "Apple Gothic", AppleGothic, "URW Gothic L", "Avant Garde", Futura, Questrial, Sans-Serif;
+  font-family: "Century Gothic", CenturyGothic, Futura, "Apple Gothic", AppleGothic, "URW Gothic L", "Avant Garde", Futura, Questrial, Sans-Serif;
   line-height: 120%;
   font-weight: bold; }
 
@@ -131,9 +131,12 @@ nav a {
 /* Heading */
 #hero {
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: center bottom;
   background-attachment: scroll;
   background-size: cover; }
+  @media (min-width: 80em) {
+    #hero {
+      background-size: 88em; } }
 
 #hero-box {
   text-align: center;
@@ -141,6 +144,9 @@ nav a {
   background: rgba(255, 255, 255, 0.25);
   background: -webkit-radial-gradient(white, rgba(255, 255, 255, 0));
   background: radial-gradient(white, rgba(255, 255, 255, 0)); }
+  @media (min-width: 80em) {
+    #hero-box {
+      padding: 15em 0 10em 0; } }
 
 #body {
   background: #eaf6fb; }
@@ -162,6 +168,14 @@ nav a {
   text-align: right;
   margin: -1em 0; }
 
+.more a {
+  padding-right: 1em;
+  background: transparent url("/assets/images/tri.svg") right/0.6em no-repeat scroll; }
+.more a, .more a:link, .more a:visited {
+  color: #3eb0db; }
+.more a:hover, .more a:active, .more a:focus, .more a.hover {
+  color: #a9dcef; }
+
 /* FOOTER */
 #footer {
   padding: 1em 0; }
@@ -177,7 +191,7 @@ nav a {
 /* CARDS */
 .card {
   padding: 1em;
-  margin: 1em 0; }
+  margin: 1.5em 0; }
 
 /* SPECIAL */
 .link {

@@ -1,0 +1,6 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' baseProfile='tiny'>
+   <circle cx='4' cy='4' r='3' fill='none' stroke='#000'/>
+   <circle cx='4' cy='4' r='3' fill='none' stroke='#fff' stroke-dasharray='3'>
+      <animateTransform attributeName='transform' attributeType='XML' type='rotate' from='0 4 4' to='360 4 4' dur='9' repeatCount='indefinite'/>
+   </circle>
+</svg>
