@@ -2,36 +2,12 @@
 <html class="no-js" lang="en-GB">
 	<head>
 		<meta charset="utf-8" /><meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		{% if page.robots %}<meta name="robots" content="{{ page.robots }}" />{% endif %}
+		{% if page.hidden %}<meta name="robots" content="NOINDEX, NOFOLLOW" />{% endif %}
 		{% include snippets/gtm.html pos="head" uid="" %}<!-- must be high as possible in <head> -->
 
 		<!-- SEO -->
-		{% if page.name == 'index.md' %}{% assign home = true %}{% else %}{% assign home = false %}{% endif %}
-		{%- if page.collection %}
-			{% assign section = site.collections | where:'label',page.collection | first %}
-		{% endif %}
-		{% assign sep = site.data.settings.seo.separator %}
-		{%- capture page_title -%}
-			{{ site.data.settings.name | default: site.title }}
-			{%- if section and section.title != 'Services' %} {{ sep }} {{ section.title }}{%- endif -%}
-			{%- if page.seo.title or site.data.settings.seo.title or page.title %} {{ sep }} {% if page.seo.title -%}
-					{{ page.seo.title }}
-				{%- elsif page.title -%}
-					{{ page.title }}
-				{%- elsif site.data.settings.seo.title -%}
-					{{ site.data.settings.seo.title }}
-				{%- endif -%}
-			{%- endif -%}
-			{%- if site.data.settings.seo.suffix.size > 0 %} {{ sep }} {{ site.data.settings.seo.suffix }}{%- endif -%}
-		{%- endcapture -%}
-		{%- capture page_description -%}
-			{%- if page.seo.description -%}
-				{{ page.seo.description }}
-			{%- elsif page.excerpt -%}
-				{{ page.excerpt | markdownify | strip_html | truncatewords: 50 }}
-			{%- endif %} {{ site.data.settings.seo.description }}
-		{%- endcapture -%}
-		<title>{{ page_title | escape | replace: '·','&middot;' }}</title>
+		{% include snippets/seo.liquid %}
+		<title>{{ page_title | escape }}</title>
 		<meta name="description" content="{{ page_description | escape }}" />
 
 		<!-- STYLES -->
@@ -39,33 +15,10 @@
 		<link rel="stylesheet" href="/assets/styles/libraries/boilerplate/boilerplate.css" />
 		<link rel="stylesheet" href="/assets/styles/libraries/bootstrap/bootstrap-grid.css" />
 		<link rel="stylesheet" href="/assets/styles/main.css" />
+		{% if page.form_html %}<link rel="stylesheet" href="/assets/styles/forms.css" />{% endif %}
 
 		<!-- SCRIPTS -->
-
-		<script type="text/javascript" src="/assets/scripts/libraries/head/head.load.min.js"></script>
-		<script type="text/javascript">
-			head.load('https://code.jquery.com/jquery-3.2.1.slim.min.js', function(){
-				if(typeof jQuery === 'undefined'){
-					head.load('/assets/scripts/libraries/jquery/jquery-3.2.1.slim.min.js');
-				};
-				head.load('/assets/scripts/libraries/jquery/jquery-plugins.js');
-				head.load('/assets/scripts/libraries/matchheight/matchHeight.jquery.js');
-				head.load('/assets/scripts/main.js');
-			});
-		</script>
-
-		<!--
-		<script type="text/javascript" src="/assets/scripts/libraries/lab/lab.min.js"></script>
-		<script type="text/javascript">
-			$LAB /*.setOptions({BasePath: '/assets/scripts/'})*/
-				.script('https://code.jquery.com/jquery-3.2.1.slim.min.js').wait(function(){
-					if(typeof jQuery === 'undefined'){ $LAB.script('/assets/scripts/libraries/jquery/jquery-3.2.1.slim.min.js'); }
-				})
-				.script('/assets/scripts/libraries/jquery/jquery-plugins.js').wait()
-				.script('/assets/scripts/libraries/matchheight/matchHeight.jquery.js').wait()
-				.script('/assets/scripts/main.js');
-		</script>
-		//-->
+		{% include snippets/scripts.html %}
 
 		<!-- OTHER -->
 		{% include snippets/compatibility.html %}
@@ -80,14 +33,15 @@
 		<header id="header" role="banner" class="positive">
 
 			<div class="container">
-				<p class="logo">{% include helpers/img.html src="/assets/images/epito.png" %}</p>
+				<p class="logo"><a href="/" title="Home">{% include helpers/img.html src="/assets/images/epito.png" alt="Epito" %}</a></p>
 				<!-- SITE NAV -->
 				<nav id="nav" role="navigation">
 					<ul>
 						<li class="visuallyhidden focusable"><a href="#main">Skip to Content</a></li>
-						<li><a href="">About</a></li>
-						<li><a href="">Jobs</a></li>
-						<li><a id="contact" href="">Contact</a></li>
+						{% for item in site.data.menu.main %}
+						<li>{% include helpers/link.html href=item.link text=item.title fail='dead' %}</li>
+						{% endfor %}
+						<li><a class="highlight" href="/contact">Contact</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -97,107 +51,92 @@
 		<main id="main">
 			<section role="main">
 				<article role="article">
-					<header class="positive" id="hero" style="background-image: url('/assets/images/desk.jpg')">
+					<header class="{% unless home or page.image.size > 0 %}offset {% endunless %}positive" id="hero"{% if page.image.size > 0 %} style="background-image: url('{% include helpers/img.html src=page.image.url src_only=true format='hero' %}')"{% endif %}>
 						<div id="hero-box">
 							<div class="container">
-								<h1 role="heading"><span class="chunk">We help you</span> organise and plan <span class="chunk">your financial life</span></h1>
-								<div class="intro">
-									<p><span class="chunk">Epito is a team of finance experts</span> who are here to <span class="chunk">look after your best interests.</span></p>
-								</div>
+								<h1 id="h1" role="heading">{{ page.heading | default: page.title | markdownify_inline }}</h1>
+								{% if page.blurb %}
+									<div id="intro">
+										{{ page.blurb | markdownify }}
+									</div>
+								{% endif %}
 							</div>
 						</div>
 					</header>
+					{% if page.links.size > 0 %}
 					<aside id="options">
 						<div class="container">
-							<h2 id="options-header">How can we help?</h2>
+							{% if page.links_heading.size > 0 %}
+								<h2 class="callout">{{ page.links_heading | markdownify_inline }}</h2>
+							{% else %}
+								<h2 class="visuallyhidden">Menu</h2>
+							{% endif %}
 							<div class="clearfix"></div>
 							<div class="row">
-								<div class="col-sm-6 col-md-4">
-									<div class="card grid link negative">
-										<section>
-											<h3>Buying a House</h3>
-											<p>Lorem ipsum dolor sit amet. Consectetur adipiscing elit. Dolor alet sit lorem.</p>
-											<p class="more"><a href="">Learn more</a></p>
-										</section>
+								{% for link in page.links %}
+									<div class="col-sm-6 col-md-4">
+										<div class="card grid link negative">
+											<section>
+												<h3>{% include helpers/link.html href=link.link text=link.title %}</h3>
+												<p>{{ link.blurb | markdownify_inline }}</p>
+												<p class="more">{% include helpers/link.html href=link.link text='Learn more' fail='empty' %}</p>
+											</section>
+										</div>
 									</div>
-								</div>
-								<div class="col-sm-6 col-md-4">
-									<div class="card grid link negative">
-										<section>
-											<h3>Your Pension</h3>
-											<p>Lorem ipsum dolor sit amet. Consectetur adipiscing elit. Dolor alet sit lorem.</p>
-											<p class="more"><a href="">Learn more</a></p>
-										</section>
-									</div>
-								</div>
-								<div class="col-sm-6 col-md-4">
-									<div class="card grid link negative">
-										<section>
-											<h3>Getting a Loan</h3>
-											<p>Lorem ipsum dolor sit amet. Consectetur adipiscing elit. Dolor alet sit lorem.</p>
-											<p class="more"><a href="">Learn more</a></p>
-										</section>
-									</div>
-								</div>
-								<div class="col-sm-6 col-md-4">
-									<div class="card grid link negative">
-										<section>
-											<h3>Buying a House</h3>
-											<p>Lorem ipsum dolor sit amet. Consectetur adipiscing elit. Dolor alet sit lorem.</p>
-											<p class="more"><a href="">Learn more</a></p>
-										</section>
-									</div>
-								</div>
-								<div class="col-sm-6 col-md-4">
-									<div class="card grid link negative">
-										<section>
-											<h3>Your Pension</h3>
-											<p>Lorem ipsum dolor sit amet. Consectetur adipiscing elit. Dolor alet sit lorem.</p>
-											<p class="more"><a href="">Learn more</a></p>
-										</section>
-									</div>
-								</div>
-								<div class="col-sm-6 col-md-4">
-									<div class="card grid link negative">
-										<section>
-											<h3>Getting a Loan</h3>
-											<p>Lorem ipsum dolor sit amet. Consectetur adipiscing elit. Dolor alet sit lorem.</p>
-											<p class="more"><a href="">Learn more</a></p>
-										</section>
-									</div>
-								</div>
+								{% endfor %}
 							</div>
 						</div>
 					</aside>
-					<section id="body" class="positive">
+					{% endif %}
+					{% assign content = content | strip %}
+					{% if content.size > 0 %}
+					<section id="body" class="body positive {% if home or page.links.size > 0 %} offset{% endif %}">
 						<div class="container">
 							<div class="row">
 								<div class="col-md-8 col-md-offset-2">
-									<div class="card grid">
-										{{ content }}
-									</div>
+									{{ content | imgify }}
 								</div>
 							</div>
 						</div>
 					</section>
+					{% endif %}
 				</article>
 			</section>
 			<!-- <section role="complementary"> -->
+			{% if page.form_html.size > 0 %}
+			<section id="form-box" role="complementary">
+				<div class="container">
+					<div class="row" id="form">
+						<div class="col-md-8 col-md-offset-2">
+							{% if page.form_heading.size > 0 %}
+								<h2 class="callout">{{ page.form_heading | markdownify_inline }}</h2>
+							{% else %}
+								<h2 class="visuallyhidden">Form</h2>
+							{% endif %}
+							{{ page.form_html }}
+						</div>
+					</div>
+				</div>
+			</section>
+			{% endif %}
 		</main>
 		<!-- /PRIMARY CONTENT -->
-		<footer id="footer" class="negative">
+		<footer id="footer">
 			<div class="container">
-				<p class="logo">{% include helpers/img.html src="/assets/images/epito-white.png" %}</p>
+				<p class="logo"><a href="/" title="Home">{% include helpers/img.html src="/assets/images/epito-white.png" alt="Epito" %}</a></p>
 				<nav>
 					<ul>
-						<li><a href="#top">Back to Top</a></li>
-						<li><a href="">Legal</a></li>
-						<li><a href="">Privacy</a></li>
-						<li><a href="">Data Protection</a></li>
+						<li id="top_link" class="positive"><a class="highlight" href="#top" title="Back to Top of Page">Top</a></li>
+						{% for item in site.data.menu.footer %}
+						<li class="negative">{% include helpers/link.html href=item.link text=item.title fail='dead' %}</li>
+						{% endfor %}
 					</ul>
 				</nav>
-				<p class="legal">Nos sitiam earist vento voluptae is rem eossi tem audi utem et, odit inci sitatiume eum ium qui quibus mos escipis cient.</p>
-
+				{% if site.data.settings.footer %}
+				<div class="legal negative">
+					{{ site.data.settings.footer | markdownify }}
+				</div>
+				{% endif %}
 			</div>
 		</footer>
 		<!--
@@ -206,5 +145,16 @@
 		<script type="text/javascript" src="/assets/scripts/libraries/matchheight/matchHeight.jquery.js"></script>
 		<script type="text/javascript" src="/assets/scripts/main.js"></script>
 		//-->
+		<script>
+			<!--
+			head.ready('webfont', function() {
+				WebFont.load({
+					google: {
+						families: ['Didact Gothic']
+					}
+				});
+			});
+			//-->
+		</script>
 	</body>
 </html>

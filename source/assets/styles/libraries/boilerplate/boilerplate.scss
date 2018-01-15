@@ -88,6 +88,10 @@ textarea {
     padding: 0.2em;
     background: $color-3;
     color: #000;
+    position: fixed;
+    top: 5em; left: 0; right: 0;
+    z-index: 9999999;
+    text-align: center
 }
 
 /* ==========================================================================

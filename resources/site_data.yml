@@ -1,0 +1,110 @@
+name: Epito
+locales:
+- en
+theme: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  logo: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    alt:
+    path: "/4386/1515762455-epito-white.png"
+    size: 11977
+    title:
+    width: 512
+    format: png
+    height: 235
+  dark_color: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    red: 13
+    blue: 31
+    alpha: 255
+    green: 22
+  light_color: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    red: 234
+    blue: 251
+    alpha: 255
+    green: 246
+  accent_color: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    red: 62
+    blue: 219
+    alpha: 255
+    green: 176
+  primary_color: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    red: 51
+    blue: 120
+    alpha: 255
+    green: 88
+domain:
+internal_domain: epito.admin.datocms.com
+global_seo: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  site_name: Epito
+  title_suffix: " ~ Your Financial Life"
+  twitter_account:
+  facebook_page_url:
+  fallback_seo: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    title: Epito
+    description: We help you organise and plan your financial life.
+    image:
+favicon: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  path: "/4386/1515777724-favicon.png"
+  width: 640
+  height: 640
+  format: png
+  size: 20597
+  alt:
+  title:
+no_index: true
+frontend_url:
+production_frontend_url:
+staging_frontend_url:
+ssg: jekyll
+imgix_host: www.datocms-assets.com
+last_data_change_at: '2018-01-14T20:06:29.196Z'
+production_last_deploy_at:
+staging_last_deploy_at:
+last_dump_at: '2018-01-14T20:04:41.876Z'
+deployable: false
+production_deploy_status: unstarted
+staging_deploy_status: unstarted
+production_scrape_status: unstarted
+staging_scrape_status: unstarted
+items_count: 8
+production_deploy_adapter:
+staging_deploy_adapter:
+relationships: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+account: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  data: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    id: '2327'
+    type: account
+users: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  data: []
+menu_items: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  data:
+  - !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    id: '19835'
+    type: menu_item
+  - !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    id: '19770'
+    type: menu_item
+  - !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    id: '19767'
+    type: menu_item
+item_types: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  data:
+  - !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    id: '19768'
+    type: item_type
+  - !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    id: '19839'
+    type: item_type
+  - !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    id: '19771'
+    type: item_type
+roles: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  data:
+  - !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    id: '7447'
+    type: role
+  - !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    id: '7448'
+    type: role
+active_plan: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  data: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    id: '1'
+    type: plan

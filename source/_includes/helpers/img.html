@@ -26,10 +26,11 @@
 	{%- endif -%}
 {%- endcapture -%}
 {%- assign src = src | strip -%}
-{%- if include.format != nil and src.size > 0 -%}
+{%- assign format = site.data.images[include.format] -%}
+{%- if include.format != nil and format.size > 0 and src.size > 0 -%}
 	{%- capture src -%}
 		{{ src }}?
-		{%- for param in include.format -%}
+		{%- for param in format -%}
 			{%- assign param-name = param | first | url_param_escape -%}
 			{%- assign param-value = param | last | url_param_escape | replace: ',','%2C' -%}
 			{%- comment -%}

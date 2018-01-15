@@ -1,10 +1,12 @@
 ---
 ---
+
 {% include styles/breakpoints.scss %}
 {% include styles/helpers.scss %}
 {% include styles/brand.scss %}
 
-/* DEBUG *//*
+/* DEBUG */
+/*
 .container, .container-fluid { outline: 1px solid red }
 .row { outline: 1px solid blue }
 .card { outline: 1px solid black }*/
@@ -13,23 +15,35 @@
 {% include styles/typography.scss %}
 
 /* Masthead */
+
 #header {
    padding: 1em 0;
-   position: fixed;
+   position: absolute;
    z-index: 999999;
-   top: 0; left: 0; right: 0;
+   top: 0;
+   left: 0;
+   right: 0;
    background: #fff;
    background: rgba(255, 255, 255, 0.9);
+   @include md() {
+      position: fixed;
+   }
 }
+
 .logo {
    margin: 0;
 
+   a { display: block }
+
    img {
-      display: block;
-      height: 3em
+      display: inline-block;
+      height: 3em;
    }
 }
-#header .logo { float: left }
+
+#header .logo {
+   float: left;
+}
 
 #nav {
    float: right;
@@ -40,78 +54,88 @@ nav ul {
    margin: 0 -0.5em;
    padding: 0;
 }
+
 nav li {
    display: table-cell;
    vertical-align: middle;
    height: 3em;
 }
+
 nav a {
    display: block;
    padding: 0.5em;
-   text-align: center
+   text-align: center;
 }
-#contact {
+
+.highlight {
    background: #fff;
-   border-radius: 0.9em
+   border-radius: 0.9em;
 }
-
 /* MAIN */
-
-#body, #options { padding: 2em 0; }
-
+#body, #options, #form {
+   padding: 2em 0;
+}
 /* Heading */
+
 #hero {
    background-repeat: no-repeat;
    background-position: center bottom;
    background-attachment: scroll;
    background-size: cover;
-
    @include lg() {
       background-size: $lg-break * 1.1;
    }
 }
+
 #hero-box {
    text-align: center;
-   padding: 12em 0 7em 0;
+   padding: 12em 0 7em;
    background: rgba(255, 255, 255, 0.25);
    background: -webkit-radial-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
    background: radial-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
-
    @include lg() {
-      padding: 15em 0 10em 0;
+      padding: 15em 0 10em;
    }
 }
 
-#body {
+#intro {
+   font-size: 110%;
+}
+
+#h1, #intro {
+   text-shadow: 0 0 3em #fff, 0 0 2em #fff, 0 0 1em #fff, 0 0 0.5em #fff
+}
+
+.offset {
    background: lighten($color-1, 40%);
 }
 
 /* Options */
-
-#options {
+#options, #form-box {
    position: relative;
 }
 
-#options-header {
+.callout {
    background: $color-1;
    padding: 0.8em;
-   color: #fff;
+   color: $color-1-neg;
    position: absolute;
-   top: -1.8em
+   top: -1.8em;
 }
-
 
 .more {
    font-size: 80%;
    font-weight: bold;
    text-align: right;
-   margin: -1em 0;
+   position: absolute;
+   bottom: 1.5em;
+   right: 2em;
 }
 
 .more {
    a {
       padding-right: 1em;
-      background: transparent url('/assets/images/tri.svg') right/0.6em no-repeat scroll;
+      background: transparent url("/assets/images/tri.svg") right/0.6em no-repeat scroll;
    }
 
    #{a('base')} {
@@ -123,22 +147,81 @@ nav a {
    }
 }
 
+/* Body */
+
+.body img {
+   display: block;
+   max-width: 100%;
+}
+
+.body p img { width: 100% }
+
+table {
+   max-width: 100%;
+   border-collapse: collapse;
+}
+td, th {
+   padding: 0.25em 0.75em;
+   border: 0.05em solid darken($color-bg, 25%);
+   text-align: left;
+   vertical-align: top;
+}
+
+/* Forms */
+
+#form-box {
+   background-color: $color-1;
+   margin-top: 2em
+}
+#form {
+   padding-top: 4em;
+   background-color: $color-bg
+}
+#form-box .callout {
+   top: -3.5em
+}
 
 /* FOOTER */
-#footer { padding: 1em 0 }
-@include md() { #footer .logo { float: right; } }
-.legal { clear: both; margin: 1em 0; font-size: 90% }
 
+#footer {
+   padding: 1em 0;
+   position: relative
+}
+#footer .logo {
+   text-align: center;
 
-/* CARDS */
+   @include md() {
+      float: right;
+   }
+}
 
-.card {
-   padding: 1em;
-   margin: 1.5em 0;
+.legal {
+   clear: both;
+   margin: 1em 0;
+   font-size: 90%;
+}
+
+#top_link {
+   position: absolute;
+   top: -1.3em
 }
 
 
-/* SPECIAL */
+/* CARDS */
+.card {
+   padding: 1em;
+   margin: 1em 0;
+   overflow-wrap: break-word;
 
-.link { cursor: pointer }
-.chunk { white-space: nowrap }
+   h3 {
+      margin-bottom: 0.5em
+   }
+}
+/* SPECIAL */
+.link {
+   cursor: pointer;
+}
+
+.chunk {
+   white-space: nowrap;
+}

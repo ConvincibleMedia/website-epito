@@ -23,7 +23,17 @@ kramdown:
 excerpt_separator: "\n\n"
 strict_front_matter: true
 
-include: _redirects
+#plugins:
+#- jekyll-minifier
+
+jekyll-minifier:
+  remove_spaces_inside_tags: true
+  remove_multi_spaces: true
+  remove_intertag_spaces: true
+  remove_comments: true
+
+include:
+- "_redirects"
 # exclude:
 
 # Defaults
@@ -34,11 +44,11 @@ defaults:
     values:
       layout: "base"
 
-permalink: ":year/:month/:slug.html"
+permalink: ":slug.html"
 
 # Collections
 collections:
   pages:
     title: "Pages"
     output: true
-    permalink: ":category/:slug.html"
+    permalink: "/:path"

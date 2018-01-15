@@ -1,15 +1,20 @@
 $color-1: #3eb0db;
 $color-1-lt: lighten($color-1, 25%);
 $color-1-dk: darken($color-1, 25%);
+$color-1-neg: #fff;
 $color-2: #335878;
 $color-2-lt: lighten($color-2, 25%);
 $color-2-dk: darken($color-2, 25%);
+$color-2-neg: #fff;
 $color-3: #f7ca3e;
 $color-3-lt: lighten($color-3, 25%);
 $color-3-dk: darken($color-3, 25%);
+$color-3-neg: #000;
 
 $color-canvas: $color-2;
 $color-bg: #fff;
+$color-text: #000;
 
-$font-head: 'Century Gothic', CenturyGothic, Futura, 'Apple Gothic', AppleGothic, 'URW Gothic L', 'Avant Garde', Futura, Questrial, Sans-Serif;
+$font-head: 'Century Gothic', 'CenturyGothic', 'Futura', 'Didact Gothic', 'Avant Garde', 'Apple Gothic', 'AppleGothic', 'URW Gothic L', Sans-Serif;
+/* Century Gothic: 99% on Windows; Futura: 99% on Mac; otherwise, load Didact from Google */
 $font-body: 'Arial', Sans-Serif;

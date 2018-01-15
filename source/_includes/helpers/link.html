@@ -29,6 +29,7 @@
 				{%- assign type = 'id' -%}
 
 			{%- else -%}
+
 				{%- assign nums = href |
 					remove: '0' |
 					remove: '1' |
@@ -54,19 +55,26 @@
 {%- capture url -%}
 	{%- case type -%}
 		{%- when 'id' -%}
-			{%- if site.data.sitemap.pages[href].live != false -%}
-				{{ site.data.sitemap.pages[href].fullpath }}
+			{%- if site.data.sitemap.pages[href] and site.data.sitemap.pages[href].live != false -%}
+				{{ site.data.sitemap.pages[href].loc }}
 			{%- endif -%}
 		{%- else -%}
 			{{ href }}
 	{%- endcase -%}
 {%- endcapture -%}
 
+{%- capture text -%}
+	{{ include.text | newline_to_br | split: '<br />' | join: ' ' | strip_newlines | strip | markdownify | strip | remove: '<p>' | remove: '</p>' }}
+{%- endcapture -%}
+
 {%- unless include.href_only -%}
-	{% if url.size > 0 -%}
-		<a {% if include.target %}target="{{ include.target }}"{% endif %} {% if include.class %}class="{{ include.class }}"{% endif %} href="{{ url }}">{{ include.text }}</a>
+	{%- if url.size > 0 -%}
+		<a {% if include.target %}target="{{ include.target }}"{% endif %} {% if include.class %}class="{{ include.class }}"{% endif %} href="{{ url }}">{{ text }}</a>
+	{%- elsif include.fail == 'dead' -%}
+		<a title="This page is not available at present.">{{ text }}</a>
+	{%- elsif include.fail == 'empty' -%}
 	{%- else -%}
-		{{ include.text }}
+		{{ text }}
 	{%- endif -%}
 {%- else -%}
 	{{ url }}

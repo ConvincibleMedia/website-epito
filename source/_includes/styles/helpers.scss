@@ -12,10 +12,10 @@
 
 @function a($type:'') {
 	@if $type == 'base' {
-		@return 'a, a:link, a:visited';
+		@return 'a, a:link, a:visited, a:not([href]):hover';
 	} @else if $type == 'hover' {
 		@return 'a:hover, a:active, a:focus, a.hover';
 	} @else {
-		@return 'a, a:link, a:visited, a:hover, a:active, a:focus, a.hover';
+		@return 'a, a:link, a:visited, a:not([href]):hover, a:hover, a:active, a:focus, a.hover';
 	}
 }
