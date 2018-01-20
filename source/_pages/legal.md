@@ -6,11 +6,13 @@ heading: Terms and Conditions
 slug: legal
 seo: 
 blurb: 
-image: ''
+image: 
 links_heading: 
 links: []
+form: 
 form_heading: 
 form_html: 
+hidden: false
 ---
 
 Veligeni sapellupta volorio. Ehente cullese volorem porecea tiumquae veritatisi doluptat. Sollace aritas explitium vendebitate quo mi, ommo quibust iuntiun dantibustet, sum aut utemque num init odit, omnimusci.

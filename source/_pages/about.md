@@ -6,11 +6,13 @@ heading: All about Epito
 slug: about
 seo: 
 blurb: Learn all about us
-image: ''
+image: 
 links_heading: ''
 links: []
+form: 
 form_heading: 
 form_html: 
+hidden: false
 ---
 
 # We were founded on the principle of ___

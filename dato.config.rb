@@ -36,12 +36,16 @@ create_data_file "source/_data/settings.yml", :yaml,
 # SITEMAP
 # ##############################################################################
 
-$sitemap = {
+
+
+$sitemap = { # $ = global scope
 	models: Hash.new,
 	pages: Hash.new,
 	tree: Hash.new,
 	types: Hash.new
 }
+
+$hidden = ['Non-Existent Page', 'Hide from Search Engines']
 
 # Pages
 =begin
@@ -68,18 +72,21 @@ def tree_map(model, path)
 		tree.each { |branch|
 			file_path = path # always has trailing slash
 			file_name = branch.slug + ".html"
-			$sitemap[:pages][branch.id] = {
-				title: branch.title,
-				slug: branch.slug,
-				path: file_path,
-				file: file_name,
-				loc: file_path + file_name,
-				lastmod: branch.updated_at,
-				# changefreq
-				# priority
-				type: branch.item_type.api_key,
-				order: branch.position
-			}
+			unless (defined?(branch.hidden) && branch.hidden == $hidden[0])
+				$sitemap[:pages][branch.id] = {
+					title: branch.title,
+					slug: branch.slug,
+					path: file_path,
+					file: file_name,
+					loc: file_path + file_name, # Sitemap schema field
+					lastmod: branch.updated_at, # Sitemap schema field
+					# Sitemap schema field changefreq
+					# Sitemap schema field priority
+					type: branch.item_type.api_key,
+					order: branch.position,
+					hidden: branch.hidden == $hidden[1] ? true : false
+				}
+			end
 			if (branch.children.length > 0)
 				new_path = path + branch.slug + "/"
 				new_parents = [{title: branch.title, id: branch.id}] + parents
@@ -146,10 +153,12 @@ def tree_grow(model, path, &block)
 	def tree_iterate(tree, path, parents, &block)
 		directory path do
 			tree.each { |branch|
-				create_post "#{branch.slug}.md" do
-					data = yield(branch, parents);
-					frontmatter :yaml, data[:frontmatter]
-					content(data[:content])
+				unless (defined?(branch.hidden) && branch.hidden == $hidden[0])
+					create_post "#{branch.slug}.md" do
+						data = yield(branch, parents);
+						frontmatter :yaml, data[:frontmatter]
+						content(data[:content])
+					end
 				end
 				if (branch.children.length > 0)
 					new_parents = [{title: branch.title, id: branch.id}] + parents
@@ -172,7 +181,7 @@ tree_grow(dato.subpages, "source/_pages") do |branch, parents|
 			slug: branch.slug,
 			seo: branch.seo,
 			blurb: branch.blurb,
-			image: defined?(branch.image.url) ? branch.image.to_hash.slice(:url, :alt, :title) : '',
+			image: defined?(branch.image.url) ? branch.image.to_hash.slice(:url, :alt, :title) : nil,
 			links_heading: branch.links_heading,
 			links: branch.links.map { |link|
 				{
@@ -181,8 +190,10 @@ tree_grow(dato.subpages, "source/_pages") do |branch, parents|
 					link: link.id
 				}
 			},
+			form: defined?(branch.form.html) ? branch.form.to_hash.slice(:heading, :html) : nil,
 			form_heading: branch.form_heading,
-			form_html: branch.form_html
+			form_html: branch.form_html,
+			hidden: branch.hidden == $hidden[1] ? true : false
 		},
 		content: branch.body
 	}

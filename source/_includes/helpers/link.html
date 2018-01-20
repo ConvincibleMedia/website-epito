@@ -55,7 +55,7 @@
 {%- capture url -%}
 	{%- case type -%}
 		{%- when 'id' -%}
-			{%- if site.data.sitemap.pages[href] and site.data.sitemap.pages[href].live != false -%}
+			{%- if site.data.sitemap.pages[href] -%}
 				{{ site.data.sitemap.pages[href].loc }}
 			{%- endif -%}
 		{%- else -%}

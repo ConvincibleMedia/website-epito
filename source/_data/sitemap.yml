@@ -9,42 +9,37 @@ pages:
     lastmod: 2018-01-15 14:53:09.111000000 Z
     type: subpage
     order: 0
-  '155998':
-    title: Services
-    slug: services
-    path: "/"
-    file: services.html
-    loc: "/services.html"
-    lastmod: 2018-01-15 14:27:51.818000000 Z
-    type: subpage
-    order: 0
+    hidden: false
   '155999':
     title: 'Service #1'
     slug: service-1
     path: "/services/"
     file: service-1.html
     loc: "/services/service-1.html"
-    lastmod: 2018-01-15 16:38:28.314000000 Z
+    lastmod: 2018-01-20 20:01:48.567000000 Z
     type: subpage
     order: 0
+    hidden: false
   '156408':
     title: 'Service #2'
     slug: service-2
     path: "/services/"
     file: service-2.html
     loc: "/services/service-2.html"
-    lastmod: 2018-01-15 14:59:25.758000000 Z
+    lastmod: 2018-01-20 20:01:54.736000000 Z
     type: subpage
     order: 1
+    hidden: false
   '156412':
     title: 'Service #3'
     slug: service-3
     path: "/services/"
     file: service-3.html
     loc: "/services/service-3.html"
-    lastmod: 2018-01-15 14:59:44.910000000 Z
+    lastmod: 2018-01-20 20:01:58.477000000 Z
     type: subpage
     order: 2
+    hidden: false
   '156001':
     title: Jobs
     slug: jobs
@@ -54,33 +49,37 @@ pages:
     lastmod: 2018-01-15 15:03:57.614000000 Z
     type: subpage
     order: 1
+    hidden: false
   '156002':
     title: 'Job #1'
     slug: job-1
     path: "/jobs/"
     file: job-1.html
     loc: "/jobs/job-1.html"
-    lastmod: 2018-01-15 15:06:46.589000000 Z
+    lastmod: 2018-01-20 20:00:46.048000000 Z
     type: subpage
     order: 0
+    hidden: false
   '156406':
     title: 'Job #2'
     slug: job-2
     path: "/jobs/"
     file: job-2.html
     loc: "/jobs/job-2.html"
-    lastmod: 2018-01-15 15:06:53.804000000 Z
+    lastmod: 2018-01-20 20:01:10.683000000 Z
     type: subpage
     order: 1
+    hidden: false
   '156413':
     title: 'Job #3'
     slug: job-3
     path: "/jobs/"
     file: job-3.html
     loc: "/jobs/job-3.html"
-    lastmod: 2018-01-15 15:06:59.623000000 Z
+    lastmod: 2018-01-20 20:01:18.071000000 Z
     type: subpage
     order: 2
+    hidden: false
   '156415':
     title: Legal
     slug: legal
@@ -90,5 +89,16 @@ pages:
     lastmod: 2018-01-15 15:00:52.809000000 Z
     type: subpage
     order: 2
+    hidden: false
+  '156646':
+    title: Privacy
+    slug: privacy
+    path: "/"
+    file: privacy.html
+    loc: "/privacy.html"
+    lastmod: 2018-01-15 20:56:41.850000000 Z
+    type: subpage
+    order: 3
+    hidden: false
 tree: {}
 types: {}

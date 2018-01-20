@@ -103,17 +103,17 @@
 				</article>
 			</section>
 			<!-- <section role="complementary"> -->
-			{% if page.form_html.size > 0 %}
+			{% if page.form.size > 0 %}
 			<section id="form-box" role="complementary">
 				<div class="container">
 					<div class="row" id="form">
 						<div class="col-md-8 col-md-offset-2">
-							{% if page.form_heading.size > 0 %}
-								<h2 class="callout">{{ page.form_heading | markdownify_inline }}</h2>
+							{% if page.form.heading.size > 0 %}
+								<h2 class="callout">{{ page.form.heading | markdownify_inline }}</h2>
 							{% else %}
 								<h2 class="visuallyhidden">Form</h2>
 							{% endif %}
-							{{ page.form_html }}
+							{{ page.form.html }}
 						</div>
 					</div>
 				</div>

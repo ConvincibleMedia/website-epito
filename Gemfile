@@ -26,4 +26,4 @@ gem "jekyll", "3.5.1"
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "dato"
-gem "jekyll-minifier"
+#gem "jekyll-minifier"
