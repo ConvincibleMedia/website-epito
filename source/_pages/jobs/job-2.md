@@ -88,8 +88,6 @@ form:
           </div>
        </div>
     </div>
-form_heading: Apply now
-form_html: ''
 hidden: false
 ---
 

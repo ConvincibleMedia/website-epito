@@ -191,8 +191,6 @@ tree_grow(dato.subpages, "source/_pages") do |branch, parents|
 				}
 			},
 			form: defined?(branch.form.html) ? branch.form.to_hash.slice(:heading, :html) : nil,
-			form_heading: branch.form_heading,
-			form_html: branch.form_html,
 			hidden: branch.hidden == $hidden[1] ? true : false
 		},
 		content: branch.body

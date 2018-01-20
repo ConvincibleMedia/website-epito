@@ -88,8 +88,6 @@ form:
           </div>
        </div>
     </div>
-form_heading: 
-form_html: ''
 hidden: false
 ---
 

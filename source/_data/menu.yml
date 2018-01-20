@@ -3,6 +3,10 @@ main:
   link: '156003'
 - title: Jobs
   link: '156001'
+- title: Contact
+  link: '161899'
 footer:
 - title: Legal
   link: '156415'
+- title: Privacy
+  link: '156646'

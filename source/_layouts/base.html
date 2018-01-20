@@ -15,7 +15,7 @@
 		<link rel="stylesheet" href="/assets/styles/libraries/boilerplate/boilerplate.css" />
 		<link rel="stylesheet" href="/assets/styles/libraries/bootstrap/bootstrap-grid.css" />
 		<link rel="stylesheet" href="/assets/styles/main.css" />
-		{% if page.form_html %}<link rel="stylesheet" href="/assets/styles/forms.css" />{% endif %}
+		{% if page.form.html %}<link rel="stylesheet" href="/assets/styles/forms.css" />{% endif %}
 
 		<!-- SCRIPTS -->
 		{% include snippets/scripts.html %}
@@ -39,9 +39,14 @@
 					<ul>
 						<li class="visuallyhidden focusable"><a href="#main">Skip to Content</a></li>
 						{% for item in site.data.menu.main %}
-						<li>{% include helpers/link.html href=item.link text=item.title fail='dead' %}</li>
+						<li>
+							{% if forloop.last == false %}
+								{% include helpers/link.html href=item.link text=item.title fail='dead' %}
+							{% else %}
+								{% include helpers/link.html href=item.link text=item.title fail='dead' class="highlight" %}
+							{% endif %}
+						</li>
 						{% endfor %}
-						<li><a class="highlight" href="/contact">Contact</a></li>
 					</ul>
 				</nav>
 			</div>

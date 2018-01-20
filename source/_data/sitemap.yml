@@ -1,15 +1,5 @@
 models: {}
 pages:
-  '156003':
-    title: About
-    slug: about
-    path: "/"
-    file: about.html
-    loc: "/about.html"
-    lastmod: 2018-01-15 14:53:09.111000000 Z
-    type: subpage
-    order: 0
-    hidden: false
   '155999':
     title: 'Service #1'
     slug: service-1
@@ -39,6 +29,16 @@ pages:
     lastmod: 2018-01-20 20:01:58.477000000 Z
     type: subpage
     order: 2
+    hidden: false
+  '156003':
+    title: About
+    slug: about
+    path: "/"
+    file: about.html
+    loc: "/about.html"
+    lastmod: 2018-01-15 14:53:09.111000000 Z
+    type: subpage
+    order: 0
     hidden: false
   '156001':
     title: Jobs
@@ -99,6 +99,16 @@ pages:
     lastmod: 2018-01-15 20:56:41.850000000 Z
     type: subpage
     order: 3
+    hidden: false
+  '161899':
+    title: Contact
+    slug: contact
+    path: "/"
+    file: contact.html
+    loc: "/contact.html"
+    lastmod: 2018-01-20 20:24:12.553000000 Z
+    type: subpage
+    order: 4
     hidden: false
 tree: {}
 types: {}

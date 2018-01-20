@@ -1,15 +1,13 @@
 ---
-id: '155999'
-parents:
-- title: Services
-  id: '155998'
-title: 'Service #1'
-heading: We can help you with this
-slug: service-1
+id: '161899'
+parents: []
+title: Contact
+heading: Contact us
+slug: contact
 seo: 
-blurb: Learn all about our Service service.
+blurb: 
 image: 
-links_heading: ''
+links_heading: 
 links: []
 form:
   heading: Contact us
@@ -91,9 +89,16 @@ form:
 hidden: false
 ---
 
-# Delecto digenda essitatur aut doloriam
-![Desk](https://www.datocms-assets.com/4386/1515763370-desk.jpg)
+# Phone
 
-Oos volorporerum expliame milit vere corepellam vit et et es maio velesse ndipit, aliquatur?
+Please contact us on **01223 123456**
 
-Lo bea comniti beria volupidi optiberchit eveliquiam hit, officiis eumquo beaqui cone et ommolup tatiis am fugitae vella commolu ptatur? Omnihil et, ad modis dolestia vel inieni blautem liqui dolore vit aut.
+# Email
+
+Please contact us on **contact@epito.com**
+
+# Post
+
+Our address is:
+
+**1 Jesus Green, Cambridge, CB1 1BC**
