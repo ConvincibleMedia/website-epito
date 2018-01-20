@@ -137,9 +137,9 @@
 						{% endfor %}
 					</ul>
 				</nav>
-				{% if site.data.settings.footer %}
+				{% if site.data.settings.content.footer %}
 				<div class="legal negative">
-					{{ site.data.settings.footer | markdownify }}
+					{{ site.data.settings.content.footer | markdownify }}
 				</div>
 				{% endif %}
 			</div>

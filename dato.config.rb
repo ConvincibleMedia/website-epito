@@ -20,17 +20,22 @@ if suf == sep then suf = '' end
 # SEO
 create_data_file "source/_data/settings.yml", :yaml,
 	title: dato.site.global_seo.site_name,
+	url: dato.site.to_hash[:frontend_url],
 	seo: {
 		title: dato.site.global_seo.fallback_seo.title,
 		description: dato.site.global_seo.fallback_seo.description,
 		image: dato.site.global_seo.fallback_seo.image,
 		separator: sep,
-		suffix: suf
+		suffix: suf,
+		hidden: dato.site.to_hash[:no_index] == true ? true : false
 	},
 	language: dato.site.locales.first,
-	footer: dato.home.footer
+	content: {
+		footer: dato.home.footer
+	}
 
 #create_data_file "source/_data/favicon.yml", :yaml, dato.site.favicon_meta_tags
+#create_data_file "resources/site_data.yml", :yaml, dato.site.to_hash
 
 
 # SITEMAP
@@ -79,7 +84,7 @@ def tree_map(model, path)
 					path: file_path,
 					file: file_name,
 					loc: file_path + file_name, # Sitemap schema field
-					lastmod: branch.updated_at, # Sitemap schema field
+					lastmod: branch.updated_at.strftime('%F'), # Sitemap schema field
 					# Sitemap schema field changefreq
 					# Sitemap schema field priority
 					type: branch.item_type.api_key,

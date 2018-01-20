@@ -1,10 +1,13 @@
 title: Epito
+url: epito.com
 seo:
   title: Epito
   description: We help you organise and plan your financial life.
   image: 
   separator: "~"
   suffix: Your Financial Life
+  hidden: false
 language: en
-footer: Nos sitiam earist vento rem eossi tem audi utem et, odit inci sitatiume eum
-  ium qui quibus mos escipis cient.
+content:
+  footer: Nos sitiam earist vento rem eossi tem audi utem et, odit inci sitatiume
+    eum ium qui quibus mos escipis cient.
